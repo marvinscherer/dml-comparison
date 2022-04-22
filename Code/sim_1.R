@@ -21,7 +21,7 @@ N <- 10000 # Max number of observations
 r <- 100   # Number of iterations (repetitions)
 
 start_time <- Sys.time()
-for(rep in 13:r) {
+for(rep in 1:r) {
     print(paste0("Iteration #", rep))
     
     n_range <- c(3000, 5000, 10000, 20000, 100000, 300000)
