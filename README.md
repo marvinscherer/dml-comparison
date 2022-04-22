@@ -18,3 +18,6 @@ Once you've followed the steps above and you are aware that your RStudio might b
     - ![](https://github.com/marvinscherer/dml-comparison/blob/main/Code/Figures/parameters.jpg)
 - You can also change the step increase of the grid of observations by changing `n_range` in line 27.
 - For more in-depth tweaking please refer to the documentation of the respective packages mentioned above.
+
+## Contact me 
+For questions feel free to contact me under `marvin.scherer@student.unisg.ch` or `marvin_scherer@hotmail.com`.
