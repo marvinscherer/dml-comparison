@@ -11,7 +11,7 @@ library(grf)
 library(tidyverse)
 
 # Working directory
-setwd("C:/Users/marvi/OneDrive - Universität St.Gallen/2 Areas/UNISG/MEcon/4th Semester/Master Thesis/Code")
+setwd("YOUR WORKING DIRECTORY")
 
 # Setting the seed
 set.seed(12345)
