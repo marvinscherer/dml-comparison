@@ -12,10 +12,9 @@ This GitHub Repository is meant to be a companion for the Master Thesis "A Compa
 
 ## How to use
 
-Once you've followed the steps above and you are aware that your RStudio might be running for multiple hours in a row you can set the desired amount of maximum observations `N` and the amount of simulated iterations `r` in the `#Parameters` section from line 19 to 21 (See image below).
+Once you've followed the steps above and you are aware that your RStudio might be running for multiple hours in a row you can set:
+- The desired amount of maximum observations `N` 
+- And the amount of simulated iterations `r` in the `#Parameters` section from line 19 to 21 (See image below).
     - ![](https://github.com/marvinscherer/dml-comparison/blob/main/Code/Figures/parameters.jpg)
-
-
-
-
-
+- You can also change the step increase of the grid of observations by changing `n_range` in line 27.
+- For more in-depth tweaking please refer to the documentation of the respective packages mentioned above.
