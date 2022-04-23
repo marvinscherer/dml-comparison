@@ -2,8 +2,8 @@
 
 ## Table of Contents  
 * [Description](#Description)
-* [How To Use](#HowToUse)
-* [Contact me](#ContactMe)
+* [How to use](#Howtouse)
+* [Contact me](#Contactme)
 
 ## Description
 
