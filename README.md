@@ -1,6 +1,11 @@
 # A Comparison between NDR-Learner and Causal Forest
 
 ##### Table of Contents  
+[Description](#Description)
+[How To Use](#HowToUse)
+[Contact Me](#ContactMe)
+
+## Description
 
 This GitHub Repository is meant to be a companion for the Master Thesis "A Comparison between NDR- Learner and Causal Forest" by Marvin Scherer (2022). The code for the 6 different simulations and their respective plots can be found in the folder `Code`. The code and the plots are run in R and are mainly built with help of the `causalDML`, `grf`, `causalToolbox` and `tidyverse` package. Please refer to the paper for more detailed information or to the documentation of the respective packages in case of more specific questions.
 
