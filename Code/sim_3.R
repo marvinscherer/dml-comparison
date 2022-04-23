@@ -1,6 +1,5 @@
-# Balanced Treatment with Complex CATE (Complex Non-Linear) (DGP 4)
+# Balanced Treatment with Complex CATE (Complex Global Linear) (DGP 3)
 # Author: Marvin Scherer
-
 
 # Settings  
 
@@ -14,7 +13,7 @@ library(tidyverse)
 setwd("YOUR WORKING DIRECTORY")
 
 # Setting the seed
-set.seed(12345)
+set.seed(1234)
 
 # Parameters --------------------------------------------------------------
 N <- 10000 # Max number of observations
@@ -34,7 +33,7 @@ for(rep in 1:r) {
     results$NDR_ATE <- NA
     results$GRF_ATE <- NA
     results$HYBRID_ATE <- NA
-    filename <- paste0("Results/complex_nonlinear", rep, "EMSE.csv")
+    filename <- paste0("Results/complex_linear", rep, "EMSE.csv")
     
     
     # Create components of ensemble
@@ -43,12 +42,12 @@ for(rep in 1:r) {
     
     for (n in n_range) {
         
-        # Experiment setting (DGP 4) ----
+        # Experiment setting (DGP 3) ----
         exp <- simulate_causal_experiment(ntrain = n, ntest = 1000, dim = 20, alpha = 0,
                                           feat_distribution = "normal",
                                           pscore = "rct5",
-                                          mu0 = "complexNonLinear",
-                                          tau = "complexNonLinear")
+                                          mu0 = "fullLinearStrong",
+                                          tau = "fullLinearStrong")
         
         
         # Training set
@@ -133,3 +132,6 @@ for(rep in 1:r) {
 }
 end_time <- Sys.time()
 end_time - start_time
+
+
+

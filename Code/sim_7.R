@@ -1,4 +1,4 @@
-# Balanced Treatment with Complex CATE (Complex Non-Linear) (DGP 4)
+# Balanced Treatment with Confounding (DGP 7)
 # Author: Marvin Scherer
 
 
@@ -14,7 +14,7 @@ library(tidyverse)
 setwd("YOUR WORKING DIRECTORY")
 
 # Setting the seed
-set.seed(12345)
+set.seed(1234)
 
 # Parameters --------------------------------------------------------------
 N <- 10000 # Max number of observations
@@ -34,7 +34,7 @@ for(rep in 1:r) {
     results$NDR_ATE <- NA
     results$GRF_ATE <- NA
     results$HYBRID_ATE <- NA
-    filename <- paste0("Results/complex_nonlinear", rep, "EMSE.csv")
+    filename <- paste0("Results/beta_confounded", rep, "EMSE.csv")
     
     
     # Create components of ensemble
@@ -43,12 +43,13 @@ for(rep in 1:r) {
     
     for (n in n_range) {
         
-        # Experiment setting (DGP 4) ----
-        exp <- simulate_causal_experiment(ntrain = n, ntest = 1000, dim = 20, alpha = 0,
-                                          feat_distribution = "normal",
-                                          pscore = "rct5",
-                                          mu0 = "complexNonLinear",
-                                          tau = "complexNonLinear")
+        # Experiment setting (DGP 7) ----
+        exp <- simulate_causal_experiment(ntrain = n, ntest = 1000, dim = 5, alpha = 0,
+                                          feat_distribution = "unif",
+                                          pscore = "osSparse1Beta",
+                                          mu0 = "simple",
+                                          tau = "semiLinear",
+                                          noEffect = TRUE)
         
         
         # Training set
@@ -62,7 +63,7 @@ for(rep in 1:r) {
         
         # Train the NDR Learner
         print(paste0("Training NDR, N = ", n))
-        ndr <- ndr_oos(y = yobs_train, w = w_train, x = feature_train,
+        ndr <- ndr_oos(y = yobs_train, w = w_train , x = feature_train,
                        xnew = feature_test,
                        ml_w = list(forest),
                        ml_y = list(forest), 

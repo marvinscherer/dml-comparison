@@ -1,4 +1,4 @@
-# Balanced Treatment without Treatment Effect (Piecewise Linear) (DGP 6)
+# Balanced Treatment without Treatment Effect (Sparse Global Linear) (DGP 5)
 # Author: Marvin Scherer
 
 
@@ -12,7 +12,6 @@ library(tidyverse)
 
 # Working directory
 setwd("YOUR WORKING DIRECTORY")
-
 # Setting the seed
 set.seed(1234)
 
@@ -34,7 +33,7 @@ for(rep in 1:r) {
     results$NDR_ATE <- NA
     results$GRF_ATE <- NA
     results$HYBRID_ATE <- NA
-    filename <- paste0("Results/piecewise_linear", rep, "EMSE.csv")
+    filename <- paste0("Results/sparse_linear", rep, "EMSE.csv")
     
     
     # Create components of ensemble
@@ -43,12 +42,12 @@ for(rep in 1:r) {
     
     for (n in n_range) {
         
-        # Experiment setting (DGP 6) ----
+        # Experiment setting (DGP 5) ----
         exp <- simulate_causal_experiment(ntrain = n, ntest = 1000, dim = 5, alpha = 0,
                                           feat_distribution = "normal",
                                           pscore = "rct5",
-                                          mu0 = "fullLocallyLinear",
-                                          tau = "fullLocallyLinear",
+                                          mu0 = "fullLinearStrong",
+                                          tau = "fullLinearStrong",
                                           noEffect = TRUE)
         
         

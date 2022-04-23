@@ -1,4 +1,4 @@
-# Balanced Treatment with Confounding (DGP 7)
+# Balanced Treatment without Treatment Effect (Piecewise Linear) (DGP 6)
 # Author: Marvin Scherer
 
 
@@ -34,7 +34,7 @@ for(rep in 1:r) {
     results$NDR_ATE <- NA
     results$GRF_ATE <- NA
     results$HYBRID_ATE <- NA
-    filename <- paste0("Results/beta_confounded", rep, "EMSE.csv")
+    filename <- paste0("Results/piecewise_linear", rep, "EMSE.csv")
     
     
     # Create components of ensemble
@@ -43,12 +43,12 @@ for(rep in 1:r) {
     
     for (n in n_range) {
         
-        # Experiment setting (DGP 7) ----
+        # Experiment setting (DGP 6) ----
         exp <- simulate_causal_experiment(ntrain = n, ntest = 1000, dim = 5, alpha = 0,
-                                          feat_distribution = "unif",
-                                          pscore = "osSparse1Beta",
-                                          mu0 = "simple",
-                                          tau = "semiLinear",
+                                          feat_distribution = "normal",
+                                          pscore = "rct5",
+                                          mu0 = "fullLocallyLinear",
+                                          tau = "fullLocallyLinear",
                                           noEffect = TRUE)
         
         
@@ -63,7 +63,7 @@ for(rep in 1:r) {
         
         # Train the NDR Learner
         print(paste0("Training NDR, N = ", n))
-        ndr <- ndr_oos(y = yobs_train, w = w_train , x = feature_train,
+        ndr <- ndr_oos(y = yobs_train, w = w_train, x = feature_train,
                        xnew = feature_test,
                        ml_w = list(forest),
                        ml_y = list(forest), 
