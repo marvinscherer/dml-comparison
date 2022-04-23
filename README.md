@@ -1,9 +1,9 @@
 # A Comparison between NDR-Learner and Causal Forest
 
 ## Table of Contents  
-* [Description](#Description)
-* [How to use](#Howtouse)
-* [Contact me](#Contactme)
+* [Description](#description)
+* [How To Use](#how-to-use)
+* [Contact Me](#contact-me)
 
 ## Description
 
