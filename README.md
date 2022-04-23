@@ -3,7 +3,7 @@
 ## Table of Contents  
 * [Description](#Description)
 * [How To Use](#HowToUse)
-* [Contact Me](#ContactMe)
+* [Contact me](#ContactMe)
 
 ## Description
 
@@ -17,7 +17,7 @@ This GitHub Repository is meant to be a companion for the Master Thesis "A Compa
     - ![](https://github.com/marvinscherer/dml-comparison/blob/main/Code/Figures/YOUR_WORKING_DIRECTORY.jpg)
 - Take into account that the simulations can take a long run time and be computationally expensive (up to 24h+).
 
-## How to use
+## How To Use
 
 Once you've followed the steps above and you are aware that your RStudio might be running for multiple hours in a row you can set:
 - The desired amount of maximum observations `N` 
@@ -26,5 +26,5 @@ Once you've followed the steps above and you are aware that your RStudio might b
 - You can also change the step increase of the grid of observations by changing `n_range` in line 27.
 - For more in-depth tweaking please refer to the documentation of the respective packages mentioned above.
 
-## Contact me 
+## Contact Me 
 For questions feel free to contact me under `marvin.scherer@student.unisg.ch` or `marvin_scherer@hotmail.com`.
