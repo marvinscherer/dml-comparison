@@ -1,4 +1,4 @@
-# Balanced Treatment without Treatment Effect (Sparse Global Linear) (DGP 4)
+# Balanced Treatment without Treatment Effect (Sparse Global Linear) (DGP 5)
 # Author: Marvin Scherer
 
 
@@ -42,7 +42,7 @@ for(rep in 1:r) {
     
     for (n in n_range) {
         
-        # Experiment setting (DGP 4) ----
+        # Experiment setting (DGP 5) ----
         exp <- simulate_causal_experiment(ntrain = n, ntest = 1000, dim = 5, alpha = 0,
                                           feat_distribution = "normal",
                                           pscore = "rct5",

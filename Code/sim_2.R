@@ -1,4 +1,4 @@
-# Balanced Treatment with Complex CATE (Complex Global Linear) (DGP 2)
+# Balanced Treatment with Complex CATE (Complex Global Linear) (DGP 3)
 # Author: Marvin Scherer
 
 # Settings  
@@ -42,7 +42,7 @@ for(rep in 1:r) {
     
     for (n in n_range) {
         
-        # Experiment setting (DGP 2) ----
+        # Experiment setting (DGP 3) ----
         exp <- simulate_causal_experiment(ntrain = n, ntest = 1000, dim = 20, alpha = 0,
                                           feat_distribution = "normal",
                                           pscore = "rct5",

@@ -13,7 +13,7 @@ This GitHub Repository is meant to be a companion for the Master Thesis "A Compa
 **If you clone this repository and run the code by yourself, make sure to:**
 
 - Create a `Results` and `Figures` folder inside of your `Code` folder for the simulations and plots to run smoothly and store the results and the plots.
-- Input your working directory in `"YOUR WORKING DIRECTORY"` at the beginning of each R Script (line 14 for simulations and line 9 for `plots.R`) (See image below).
+- Input your working directory in `"YOUR WORKING DIRECTORY"` at the beginning of each R Script (line 14) (See image below).
     - ![](https://github.com/marvinscherer/dml-comparison/blob/main/Code/Figures/YOUR_WORKING_DIRECTORY.jpg)
 - Take into account that the simulations can take a long run time and be computationally expensive (up to 24h+).
 

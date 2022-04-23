@@ -1,4 +1,4 @@
-# Balanced Treatment without Treatment Effect (Piecewise Linear) (DGP 5)
+# Balanced Treatment without Treatment Effect (Piecewise Linear) (DGP 6)
 # Author: Marvin Scherer
 
 
@@ -43,7 +43,7 @@ for(rep in 1:r) {
     
     for (n in n_range) {
         
-        # Experiment setting (DGP 5) ----
+        # Experiment setting (DGP 6) ----
         exp <- simulate_causal_experiment(ntrain = n, ntest = 1000, dim = 5, alpha = 0,
                                           feat_distribution = "normal",
                                           pscore = "rct5",

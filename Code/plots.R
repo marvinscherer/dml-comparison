@@ -1,3 +1,8 @@
+# Plots The Results of the Simulations
+# Author: Marvin Scherer
+
+
+# Packages
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
@@ -9,7 +14,8 @@ library(ggrepel)
 setwd("YOUR WORKING DIRECTORY")
 
 
-experiments <- c("unbalanced_treatment",
+experiments <- c("^balanced_treatment", # String start anchor (^) needed to separate balanced from unbalanced
+                 "unbalanced_treatment",
                  "complex_linear",
                  "complex_nonlinear",
                  "sparse_linear",
@@ -31,28 +37,33 @@ for (experiment in experiments) {
                   NDR_ATE = mean(NDR_ATE),
                   GRF_ATE = mean(GRF_ATE),
                   HYBRID_ATE = mean(HYBRID_ATE)
-                  ) %>%
+        ) %>%
         as.data.frame() -> results
     
+    # Needed to have clean titles on the plots 
+    if (exp_name == "^balanced_treatment") {
+        exp_name <- "balanced_treatment"
+    }
+    
     min_cate <- min(results %>%
-                   melt(id = "N") %>%
-                   filter(variable %>% str_detect("_CATE")) %>%
-                   select(value))
+                        melt(id = "N") %>%
+                        filter(variable %>% str_detect("_CATE")) %>%
+                        select(value))
     
     max_cate <- max(results %>%
-                   melt(id = "N") %>%
-                   filter(variable %>% str_detect("_CATE")) %>%
-                   select(value))
+                        melt(id = "N") %>%
+                        filter(variable %>% str_detect("_CATE")) %>%
+                        select(value))
     
     min_ate <- min(results %>%
-                   melt(id = "N") %>%
-                   filter(variable %>% str_detect("_ATE")) %>%
-                   select(value))
+                       melt(id = "N") %>%
+                       filter(variable %>% str_detect("_ATE")) %>%
+                       select(value))
     
     max_ate <- max(results %>% 
-                   melt(id = "N") %>%
-                   filter(variable %>% str_detect("_ATE")) %>% 
-                   select(value))
+                       melt(id = "N") %>%
+                       filter(variable %>% str_detect("_ATE")) %>% 
+                       select(value))
     
     results %>%
         melt(id = "N") %>%
@@ -88,7 +99,7 @@ for (experiment in experiments) {
                                       "Causal Forest" = "seagreen",
                                       "Hybrid Approach" = "orange")) +
         
-
+        
         labs(title = "ATE", subtitle = str_to_title(str_replace(exp_name, "_", " ")), 
              x = "Training Size", y = "MSE") +
         scale_y_continuous()
